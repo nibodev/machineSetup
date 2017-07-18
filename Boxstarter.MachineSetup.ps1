@@ -18,7 +18,9 @@ if (Test-PendingReboot) { Invoke-Reboot }
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
 $wallpaperFile = "$env:USERPROFILE\i3-wallpaper-4k.png"
 Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
-Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name wallpaper -value $wallpaperFile
+Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPicture" -name UserImage -Value $wallpaperfile
+Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
+Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 
 # Update Windows and reboot if necessary
 #-Install-WindowsUpdate -AcceptEula
