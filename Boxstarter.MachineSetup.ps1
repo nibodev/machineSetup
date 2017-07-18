@@ -15,7 +15,7 @@ Disable-UAC
 
 if (Test-PendingReboot) { Invoke-Reboot }
 
-$wallpaperUrl = "https://gist.githubusercontent.com/StephenKing/eee9c8344d8e1ec72ca0/raw/i3-wallpaper-4k.png"
+$wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
 $wallpaperFile = "$env:USERPROFILE\i3-wallpaper-4k.png"
 Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name wallpaper -value $wallpaperFile
