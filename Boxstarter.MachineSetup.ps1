@@ -2,7 +2,7 @@
 
 
 # Allow reboots
-$Boxstarter.RebootOk=$true
+$Boxstarter.RebootOk=$false
 $Boxstarter.NoPassword=$false
 $Boxstarter.AutoLogin=$true
 
