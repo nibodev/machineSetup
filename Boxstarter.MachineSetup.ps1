@@ -124,3 +124,4 @@ cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 
 
+# Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles86)\Google\Chrome\Application\chrome.exe"
