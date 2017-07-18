@@ -13,7 +13,7 @@ Enable-RemoteDesktop
 Disable-InternetExplorerESC
 Disable-UAC
 
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
 $wallpaperFile = "$env:USERPROFILE\i3-wallpaper-4k.png"
@@ -29,7 +29,7 @@ Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wall
 
 # Install Visual Studio 2017 Community
 cinst visualstudio2017community -InstallArguments WebTools
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 # Visual Studio SDK required for PoshTools extension
 #cinstm VS2013SDK
