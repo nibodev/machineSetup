@@ -20,7 +20,7 @@ $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/N
 $wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
 Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
 Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPicture" -name UserImage -Value $wallpaperfile
-New-Item -path "HKLM:SOFTWARE\Policies\Microsoft\Windows" -name Personalization –force
+New-Item -path "HKLM:SOFTWARE\Policies\Microsoft\Windows" -name Personalization -force
 Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 
@@ -63,7 +63,7 @@ cinst dotnetcore-runtime --pre
 
 
 #Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel"
-#    $env:Path = "$env:Path;C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
+$env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 
 #Browsers
 cinst googlechrome
@@ -78,9 +78,20 @@ cinst chocolatey
 cmd.exe /c choco feature enable -n allowGlobalConfirmation
 cmd.exe /c choco feature enable -n allowEmptyChecksums
 
+### Install Desktop Shortcuts on Public Desktop
+ # Find the location of OUTLOOK.EXE and store as a variable:
+ $visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
+ # Confirm the location stored in the variable:
+ ECHO $visualstudio_loc
+ # Use the variable in the Boxstarter/Chocolatey command:
+ Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
 
 
-#Atalho Chrome
+
+ #Atalho Chrome
+ $chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
+ ECHO $chrome_loc
+ Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
 
 
 
