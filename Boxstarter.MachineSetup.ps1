@@ -87,9 +87,9 @@ ECHO $visualstudio_loc
 Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
 
 #Atalho Chrome
-$chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
-ECHO $chrome_loc
-Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
+#$chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
+#ECHO $chrome_loc
+#Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
 
 
 #Installing IIS
