@@ -80,11 +80,11 @@ cmd.exe /c choco feature enable -n allowEmptyChecksums
 
 ### Install Desktop Shortcuts on Public Desktop
 # Find the location of OUTLOOK.EXE and store as a variable:
-$visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
+#$visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
 # Confirm the location stored in the variable:
-ECHO $visualstudio_loc
+#ECHO $visualstudio_loc
 # Use the variable in the Boxstarter/Chocolatey command:
-Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
+#Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
 
 #Atalho Chrome
 
