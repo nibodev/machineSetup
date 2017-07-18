@@ -57,8 +57,8 @@ cinst ruby
 cinst visualstudiocode
 cinst postman
 cinst cmder
-cinst mssqlservermanagementstudio2014express -DisableReboots
-cinst sql-server-management-studio -DisableReboots
+cinst mssqlservermanagementstudio2014express
+cinst sql-server-management-studio
 cinst dotnetcore-runtime --pre
 
 
