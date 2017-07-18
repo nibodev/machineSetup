@@ -36,7 +36,6 @@ if (Test-PendingReboot) { Invoke-Reboot }
 #if (Test-PendingReboot) { Invoke-Reboot }
 
 cinst DotNet4.5 #Installing DotNet
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # VS extensions
 #Install-ChocolateyVsixPackage PowerShellTools http://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597/file/112013/6/PowerShellTools.vsix
