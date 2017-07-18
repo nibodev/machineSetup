@@ -59,7 +59,7 @@ cinst postman
 cinst cmder
 cinst mssqlservermanagementstudio2014express
 cinst sql-server-management-studio
-cinst dotnetcore-runtime
+cinst dotnetcore-runtime --pre
 
 
 #Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel"
