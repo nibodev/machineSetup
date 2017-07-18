@@ -2,7 +2,7 @@
 
 
 # Allow reboots
-$Boxstarter.RebootOk=$false
+$Boxstarter.RebootOk=$true
 $Boxstarter.NoPassword=$false
 $Boxstarter.AutoLogin=$true
 
@@ -61,7 +61,7 @@ cinst dotnetcore-runtime --pre
 
 
 #Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel"
-    $env:Path = $env:Path + &ndash;;C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm&ndash;
+    $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 
 #Browsers
 cinst googlechrome
@@ -123,4 +123,4 @@ cinst WAS-NetFxEnvironment -source windowsfeatures
 cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 
-Install-ChocolateyPinnedTaskBarItem &ndash;$($Boxstarter.programFiles86)\Google\Chrome\Application\chrome.exe&ndash;
+Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles86)\Google\Chrome\Application\chrome.exe"
