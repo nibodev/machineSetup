@@ -20,8 +20,8 @@ $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/N
 $wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
 Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
 Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPicture" -name UserImage -Value $wallpaperfile
-New-Item -path "HKLM:SOFTWARE\Policies\Microsoft\Windows" -name Personalization -force
-Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
+#New-Item -path "HKLM:SOFTWARE\Policies\Microsoft\Windows" -name Personalization -force
+#Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 
 # Update Windows and reboot if necessary
