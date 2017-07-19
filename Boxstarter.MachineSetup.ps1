@@ -72,26 +72,26 @@ cinst googlechrome
 #Other essential tools
 cinst slack
 cinst spotify
-cinst chocolatey
+#cinst chocolatey
 
 # Set Choco options
-cmd.exe /c choco feature enable -n allowGlobalConfirmation
-cmd.exe /c choco feature enable -n allowEmptyChecksums
+#cmd.exe /c choco feature enable -n allowGlobalConfirmation
+#cmd.exe /c choco feature enable -n allowEmptyChecksums
 
 ### Install Desktop Shortcuts on Public Desktop
  # Find the location of OUTLOOK.EXE and store as a variable:
- $visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
+ #$visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
  # Confirm the location stored in the variable:
- ECHO $visualstudio_loc
+ #ECHO $visualstudio_loc
  # Use the variable in the Boxstarter/Chocolatey command:
- Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
+ #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
 
 
 
  #Atalho Chrome
- $chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
- ECHO $chrome_loc
- Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
+ #$chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
+ #ECHO $chrome_loc
+ #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
 
 
 
