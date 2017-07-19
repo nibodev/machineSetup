@@ -135,7 +135,7 @@ cinst IIS-HttpCompressionDynamic -source windowsfeatures
 cinst IIS-WebServerManagementTools -source windowsfeatures
 cinst IIS-ManagementScriptingTools -source windowsfeatures
 cinst IIS-IIS6ManagementCompatibility -source windowsfeatures
-cinst IIS-Metabase
+cinst IIS-Metabase -source windowsfeatures
 cinst IIS-WMICompatibility -source windowsfeatures
 cinst IIS-LegacyScripts -source windowsfeatures
 cinst WAS-WindowsActivationService -source windowsfeatures
