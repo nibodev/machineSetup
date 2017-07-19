@@ -2,7 +2,7 @@
 
 
 # Allow reboots
-$Boxstarter.RebootOk=$true
+$Boxstarter.RebootOk=$false
 $Boxstarter.NoPassword=$false
 $Boxstarter.AutoLogin=$true
 
@@ -14,7 +14,7 @@ Disable-InternetExplorerESC
 Disable-BingSearch
 Disable-UAC
 
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
 $wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
@@ -31,14 +31,14 @@ Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wall
 
 # Install Visual Studio 2017 Community
 cinst visualstudio2017community -InstallArguments WebTools
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 # Visual Studio SDK required for PoshTools extension
 #cinstm VS2013SDK
 #if (Test-PendingReboot) { Invoke-Reboot }
 
 cinst DotNet4.5 #Installing DotNet
-if (Test-PendingReboot) { Invoke-Reboot }
+#if (Test-PendingReboot) { Invoke-Reboot }
 
 # VS extensions
 #Install-ChocolateyVsixPackage PowerShellTools http://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597/file/112013/6/PowerShellTools.vsix
