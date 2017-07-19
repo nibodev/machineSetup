@@ -2,6 +2,8 @@ Update-ExecutionPolicy Unrestricted
 
 Disable-UAC
 
-$wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
+$importsite = "https://raw.githubusercontent.com/nibodev/machineSetup/master/sites.xml"
 #$wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
-Invoke-WebRequest $wallpaperUrl -OutFile "C:\sites.xml"
+Invoke-WebRequest $importsite -OutFile "C:\sites.xml"
+
+cmd.exe %windir%\system32\inetsrv\appcmd add site /in < c:\sites.xml
