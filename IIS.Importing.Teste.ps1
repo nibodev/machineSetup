@@ -6,4 +6,4 @@ $importsite = "https://raw.githubusercontent.com/nibodev/machineSetup/master/sit
 #$wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
 Invoke-WebRequest $importsite -OutFile "C:\sites.xml"
 
-cmd.exe /c "%windir%\system32\inetsrv\appcmd add site /in < c:\sites.xml"
+gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
