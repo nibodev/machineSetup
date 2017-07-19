@@ -1,12 +1,12 @@
-#Boxstarter script Dev Environment
+#Boxstarter script ambiente dev
 
 
-# Allow reboots
+# Permite reiniciar
 $Boxstarter.RebootOk=$false # Quer reiniciar?
 $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 
-# Basic setup
+# Restrições básicas
 Update-ExecutionPolicy Unrestricted
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
 Enable-RemoteDesktop
@@ -24,17 +24,17 @@ Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPi
 #Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile #coloca um plano de fundo
 
-# Update Windows and reboot if necessary
+# Executar Windows Update e reiniciar se necessário
 #-Install-WindowsUpdate -AcceptEula
 #-if (Test-PendingReboot) { Invoke-Reboot }
 
 
-# Install Visual Studio 2017 Community
+# Instalar Visual Studio 2017 Community
 cinst visualstudio2017community -InstallArguments WebTools
 #if (Test-PendingReboot) { Invoke-Reboot }
 
-
-cinst DotNet4.5 #Installing DotNet
+ #Instalando Dotnet 4.5
+cinst DotNet4.5
 #if (Test-PendingReboot) { Invoke-Reboot }
 
 # VS extensions
@@ -62,25 +62,21 @@ cinst dotnetcore-runtime --pre
 #Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel"
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 
-#Browsers
+#Apps essenciais
 cinst googlechrome
-
-
-#Other essential tools
 cinst slack
 cinst spotify
-#cinst chocolatey
 
 # Set Choco options
 #cmd.exe /c choco feature enable -n allowGlobalConfirmation
 #cmd.exe /c choco feature enable -n allowEmptyChecksums
 
-### Install Desktop Shortcuts on Public Desktop
- # Find the location of OUTLOOK.EXE and store as a variable:
+#Atalho Visual Studio
+ # Procura o local que esta o .exe
  #$visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
- # Confirm the location stored in the variable:
+ # Confirma a variavel
  #ECHO $visualstudio_loc
- # Use the variable in the Boxstarter/Chocolatey command:
+ # Usa a variavel para pinnar o atalho
  #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
 
 
@@ -92,7 +88,7 @@ cinst spotify
 
 
 
-#Installing IIS
+#Instalando IIS e seus componentes
 cinst IIS-WebServerRole -source windowsfeatures
 cinst IIS-HttpCompressionDynamic -source windowsfeatures
 cinst IIS-ManagementScriptingTools -source windowsfeatures
