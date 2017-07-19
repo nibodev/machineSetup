@@ -6,7 +6,7 @@ $Boxstarter.RebootOk=$false # Quer reiniciar?
 $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 
-# Restrições básicas
+# Regras básicas
 Update-ExecutionPolicy Unrestricted
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
 Enable-RemoteDesktop
