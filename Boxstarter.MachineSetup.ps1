@@ -28,7 +28,7 @@ Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wall
 ###########################################################################################################################
 
 ########Instalar Visual Studio 2017 Community#############
-cinst visualstudio2017community -InstallArguments WebTools
+cinst visualstudio2017community -InstallArguments WebTools --locale en-US
 cinst visualstudio2017-workload-netweb
 ###########################################################
 
