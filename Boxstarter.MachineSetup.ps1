@@ -50,6 +50,7 @@ cinst NugetPackageExplorer
 cinst notepadplusplus.install
 cinst nodejs.install
 cinst ruby
+cinst git.install
 cinst visualstudiocode
 cinst postman
 cinst cmder
