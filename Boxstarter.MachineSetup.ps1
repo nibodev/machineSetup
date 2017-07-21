@@ -59,13 +59,18 @@ cinst sql-server-management-studio
 cinst dotnetcore-runtime --pre
 ################################################
 
+#### Refresh nas variáveis de ambiente ####
 RefreshEnv.cmd
+###########################################
+
 
 ########### Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel ##############
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 ############################################################################################################################
 
+#### Refresh nas variáveis de ambiente ####
 RefreshEnv.cmd
+###########################################
 
 ####### Apps Essenciais ############
 cinst googlechrome
@@ -78,18 +83,10 @@ cinst spotify
 #cmd.exe /c choco feature enable -n allowEmptyChecksums
 
 #Atalho Visual Studio
- # Procura o local que esta o .exe
- #$visualstudio_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\DEVENV.EXE" | findstr /v "Cache"
- # Confirma a variavel
- #ECHO $visualstudio_loc
- # Usa a variavel para pinnar o atalho
- #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Devenv.lnk" -TargetPath "$visualstudio_loc" -PinToTaskbar
-
- #Atalho Chrome
- #$chrome_loc = cmd.exe /c dir c:\ /b /s | findstr /E /C:"\CHROME.EXE" | findstr /v "Cache"
- #ECHO $chrome_loc
- #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
-
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Visual Studio 2017 Community.lnk")
+$Shortcut.TargetPath = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+$Shortcut.Save()
 
 ########################## Instalando IIS e seus componentes #####################################
 cinst IIS-WebServerRole -source windowsfeatures
@@ -155,7 +152,8 @@ gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
 gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
 ####################################################################################################
 
-############################ Clonando repositorios #####################################################################################
+############################ Clonando repositórios #####################################################################################
+
 mkdir C:\Git
 cd C:\Git
 
