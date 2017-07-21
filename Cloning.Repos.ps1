@@ -8,8 +8,8 @@ mkdir C:\Git
 cd C:\Git
 
 $url = "https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects"
-$username = Read-host "Qual o email?" #exemplo: xxxx@nibo.com.br
-$password = Read-host "Qual o token dos repositorios online no visual studio?" #precisa do token de acesso dos repositorios do visual studio
+$username = Read-host -Prompt "Digite seu email:" #exemplo: xxxx@nibo.com.br
+$password = Read-host -Prompt "Digite o seu token para baixar os repositorios:" #precisa do token de acesso dos repositorios do visual studio
 
 # Retrieve list of all repositories
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username,$password)))
