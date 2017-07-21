@@ -1,5 +1,8 @@
 # Clonando repositorios
 
+Update-ExecutionPolicy Unrestricted
+Disable-UAC
+
 mkdir C:\Git
 
 cd C:\Git
