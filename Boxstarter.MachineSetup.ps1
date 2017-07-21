@@ -1,14 +1,14 @@
 #Boxstarter script ambiente dev
 
 
-##################Permite reiniciar#########################################################
+################## Permite reiniciar #########################################################
 $Boxstarter.RebootOk=$false # Quer reiniciar?
 $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
-############################################################################################
+##############################################################################################
 
 
-#########Regras básicas#################################################################################################################################################################################################################
+######### Regras básicas ###############################################################################################################################################################################################################
 Update-ExecutionPolicy Unrestricted
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
 Enable-RemoteDesktop
@@ -17,7 +17,7 @@ Disable-BingSearch
 Disable-UAC
 ########################################################################################################################################################################################################################################
 
-######################Colocar imagem no plano de fundo e no profile do usuário#############################################
+###################### Colocar imagem no plano de fundo e no profile do usuário #############################################
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
 $wallpaperFile = "$env:USERPROFILE\Nibo-Wallpaper-1366x768.png"
 Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
@@ -25,16 +25,16 @@ Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPi
 #New-Item -path "HKLM:SOFTWARE\Policies\Microsoft\Windows" -name Personalization -force
 #Set-ItemProperty -path "HKLM:SOFTWARE\Policies\Microsoft\Windows\Personalization" -name LockScreenImage -value $wallpaperfile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
-###########################################################################################################################
+#############################################################################################################################
 
-########Instalar Visual Studio 2017 Community#############
+######## Instalar Visual Studio 2017 Community #############
 cinst visualstudio2017community -InstallArguments WebTools --locale en-US
 cinst visualstudio2017-workload-netweb
-###########################################################
+############################################################
 
- ##Instalando Dotnet 4.5###
+ ### Instalando Dotnet 4.5 ###
 cinst DotNet4.5
-###########################
+##############################
 
 # VS extensions
 #Install-ChocolateyVsixPackage PowerShellTools http://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597/file/112013/6/PowerShellTools.vsix
@@ -45,11 +45,12 @@ cinst DotNet4.5
 # AWS Toolkit is now an MSI available here http://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi (no chocolatey package as of FEB 2014)
 # Install-ChocolateyVsixPackage AwsToolkit http://visualstudiogallery.msdn.microsoft.com/175787af-a563-4306-957b-686b4ee9b497
 
-################Dev Tools######################
+############## Dev Tools ######################
 cinst NugetPackageExplorer
 cinst notepadplusplus.install
 cinst nodejs.install
 cinst ruby
+cinst git.install
 cinst visualstudiocode
 cinst postman
 cinst cmder
@@ -58,11 +59,15 @@ cinst sql-server-management-studio
 cinst dotnetcore-runtime --pre
 ################################################
 
-############Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel"##############
+RefreshEnv.cmd
+
+########### Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel ##############
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 ############################################################################################################################
 
-#######Apps essenciais############
+RefreshEnv.cmd
+
+####### Apps Essenciais ############
 cinst googlechrome
 cinst slack
 cinst spotify
@@ -86,7 +91,7 @@ cinst spotify
  #Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\Public\Desktop\Chrome.lnk" -TargetPath "$chrome_loc" -PinToTaskbar
 
 
-##########################Instalando IIS e seus componentes#####################################
+########################## Instalando IIS e seus componentes #####################################
 cinst IIS-WebServerRole -source windowsfeatures
 cinst IIS-HttpCompressionDynamic -source windowsfeatures
 cinst IIS-ManagementScriptingTools -source windowsfeatures
@@ -139,7 +144,7 @@ cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 ##################################################################################################
 
-#############Importando os XML's dos Sites e AppPools pro IIS#####################################
+############# Importando os XML's dos Sites e AppPools pro IIS #####################################
 $importsite = "https://raw.githubusercontent.com/nibodev/machineSetup/master/sites.xml"
 $importpools = "https://raw.githubusercontent.com/nibodev/machineSetup/master/apppools.xml"
 $sites = "$env:USERPROFILE\sites.xml"
@@ -148,7 +153,7 @@ Invoke-WebRequest $importsite -OutFile $sites
 Invoke-WebRequest $importpools -OutFile $pools
 gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
 gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
-###################################################################################################
+####################################################################################################
 
 ############################ Clonando repositorios #####################################################################################
 mkdir C:\Git
