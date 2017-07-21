@@ -11,7 +11,7 @@ $url = "https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects"
 $username = Read-host -Prompt "Digite seu email:" #exemplo: xxxx@nibo.com.br
 $password = Read-host -Prompt "Digite o seu token para baixar os repositorios:" #precisa do token de acesso dos repositorios do visual studio
 
-# Retrieve list of all repositories
+# Lista todos os repositórios
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username,$password)))
 $headers = @{
     "Authorization" = ("Basic {0}" -f $base64AuthInfo)
@@ -24,7 +24,7 @@ $gitcred = ("{0}:{1}" -f  [System.Web.HttpUtility]::UrlEncode($username),$passwo
 $resp = Invoke-WebRequest -Headers $headers -Uri ("{0}/_apis/git/repositories?api-version=1.0" -f $url)
 $json = convertFrom-JSON $resp.Content
 
-# Clone or pull all repositories
+# Clona todos os repositórios que o usuário tem permissão
 $initpath = get-location
 foreach ($entry in $json.value) { 
     $name = $entry.name 
