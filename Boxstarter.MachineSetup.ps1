@@ -74,6 +74,7 @@ RefreshEnv.cmd
 ###########################################
 
 ####### Apps Essenciais ############
+cinst zoiper --version 3.9
 cinst googlechrome
 cinst skype
 cinst slack
@@ -190,6 +191,19 @@ foreach ($entry in $json.value) {
     }
 }
 #######################################################################################################################################
+
+
+########## Colocando a URL original do repositório git para o Visual Studio identificar #############
+
+$folders = Get-ChildItem -Path '.\' -Directory
+
+foreach ($folder in $folders) {
+    echo $folder.Name
+    cd $folder.Name
+    git remote set-url origin https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects/_git/$folder
+    cd ..
+}
+####################################################################################################
 
 Enable-UAC
 
