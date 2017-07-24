@@ -52,7 +52,6 @@ cinst notepadplusplus.install
 cinst nodejs.install
 cinst ruby
 cinst git
-cinst git.install
 cinst visualstudiocode
 cinst postman
 cinst cmder
