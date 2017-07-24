@@ -55,7 +55,7 @@ cinst git
 cinst visualstudiocode
 cinst postman
 cinst cmder
-cinst mssqlservermanagementstudio2014express
+cinst mssqlserver2014express
 cinst sql-server-management-studio
 cinst dotnetcore-runtime --pre
 ################################################
