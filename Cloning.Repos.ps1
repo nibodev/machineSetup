@@ -7,7 +7,7 @@ mkdir C:\Git\NiboProjects
 
 cd C:\Git\NiboProjects
 
-$url = "https://nibogestao.visualstudio.com/DefaultCollection/_git/NiboProjects"
+$url = "https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects"
 $username = Read-host -Prompt "Digite seu email:" #exemplo: xxxx@nibo.com.br
 $password = Read-host -Prompt "Digite o seu token para baixar os repositorios:" #precisa do token de acesso dos repositorios do visual studio
 
