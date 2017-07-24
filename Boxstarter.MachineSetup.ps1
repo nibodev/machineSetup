@@ -28,8 +28,9 @@ Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wall
 #############################################################################################################################
 
 ######## Instalar Visual Studio 2017 Community #############
-cinst visualstudio2017community -InstallArguments WebTools --locale en-US
+cinst visualstudio2017community --package-parameters "--locale en-US"
 cinst visualstudio2017-workload-netweb
+cinst visualstudio2017-workload-netcoretools
 ############################################################
 
  ### Instalando Dotnet 4.5 ###
@@ -50,6 +51,7 @@ cinst NugetPackageExplorer
 cinst notepadplusplus.install
 cinst nodejs.install
 cinst ruby
+cinst git
 cinst git.install
 cinst visualstudiocode
 cinst postman
@@ -74,6 +76,7 @@ RefreshEnv.cmd
 
 ####### Apps Essenciais ############
 cinst googlechrome
+cinst skype
 cinst slack
 cinst spotify
 ##################################
