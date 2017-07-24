@@ -39,3 +39,13 @@ foreach ($entry in $json.value) {
         set-location $initpath
     }
 }
+
+
+$folders = Get-ChildItem -Path '.\' -Directory
+
+foreach ($folder in $folders) {
+    echo $folder.Name
+    cd $folder.Name
+    git remote set-url origin https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects/_git/$folder.Name
+    cd ..
+}
