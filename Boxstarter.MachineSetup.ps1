@@ -37,14 +37,6 @@ cinst visualstudio2017-workload-netcoretools
 cinst DotNet4.5
 ##############################
 
-# VS extensions
-#Install-ChocolateyVsixPackage PowerShellTools http://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597/file/112013/6/PowerShellTools.vsix
-#Install-ChocolateyVsixPackage WebEssentials2013 http://visualstudiogallery.msdn.microsoft.com/56633663-6799-41d7-9df7-0f2a504ca361/file/105627/31/WebEssentials2013.vsix
-#Install-ChocolateyVsixPackage T4Toolbox http://visualstudiogallery.msdn.microsoft.com/791817a4-eb9a-4000-9c85-972cc60fd5aa/file/116854/1/T4Toolbox.12.vsix
-#Install-ChocolateyVsixPackage StopOnFirstBuildError http://visualstudiogallery.msdn.microsoft.com/91aaa139-5d3c-43a7-b39f-369196a84fa5/file/44205/3/StopOnFirstBuildError.vsix
-
-# AWS Toolkit is now an MSI available here http://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi (no chocolatey package as of FEB 2014)
-# Install-ChocolateyVsixPackage AwsToolkit http://visualstudiogallery.msdn.microsoft.com/175787af-a563-4306-957b-686b4ee9b497
 
 ############## Dev Tools ######################
 cinst NugetPackageExplorer
@@ -81,15 +73,14 @@ cinst slack
 cinst spotify
 ##################################
 
-# Set Choco options
-#cmd.exe /c choco feature enable -n allowGlobalConfirmation
-#cmd.exe /c choco feature enable -n allowEmptyChecksums
 
-#Atalho Visual Studio
+######################## Atalho Visual Studio ##############################################################
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Visual Studio 2017 Community.lnk")
 $Shortcut.TargetPath = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
 $Shortcut.Save()
+############################################################################################################
+
 
 ########################## Instalando IIS e seus componentes #####################################
 cinst IIS-WebServerRole -source windowsfeatures
