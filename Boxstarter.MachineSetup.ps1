@@ -27,6 +27,13 @@ Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPi
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 #############################################################################################################################
 
+################ Adicionando arquivo Hosts ####################################
+$hosts = "https://raw.githubusercontent.com/nibodev/machineSetup/master/hosts"
+$hostsFile = "C:\Windows\System32\drivers\etc\hosts"
+Invoke-WebRequest $hosts -OutFile $hostsFile
+###############################################################################
+
+
 ######## Instalar Visual Studio 2017 Community #############
 cinst visualstudio2017community --package-parameters "--locale en-US"
 cinst visualstudio2017-workload-netweb
