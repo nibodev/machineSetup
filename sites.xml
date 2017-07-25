@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<appcmd>
+    <SITE SITE.NAME="Nibo.Accountant.Legacy" SITE.ID="2" bindings="http/*:80:dev-contador.nibo.com.br" state="Started">
+
+        <site name="Nibo.Accountant.Legacy" id="2" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-contador.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Accountant.Legacy" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\AccountantLegacy\Nibo.Accountant" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.API" SITE.ID="3" bindings="http/*:80:dev-api.nibo.com.br" state="Started">
+
+        <site name="Nibo.API" id="3" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-api.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\dummy" />
+
+            </application>
+
+            <application path="/Accountant" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Accountant\Api\Nibo.Accountant.Api" />
+
+            </application>
+
+            <application path="/Billing" applicationPool="Nibo.API">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\BillingCentral\Nibo.BillingCentral.Api" />
+
+            </application>
+
+            <application path="/Core" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\CoreAPI\Nibo.Core.Api" />
+
+            </application>
+
+            <application path="/Import" applicationPool="Nibo.API">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Import\Api\Nibo.Import.Api" />
+
+            </application>
+
+            <application path="/Onboarding" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\OnBoading\Nibo.OnBoarding.WebApi" />
+
+            </application>
+
+            <application path="/Invoice" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Invoice\Api\Nibo.Invoice.Api" />
+
+            </application>
+
+            <application path="/Documents" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Documents\Nibo.Documents.Api" />
+
+            </application>
+
+            <application path="/dev" applicationPool="Nibo.API">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Tools\Dev\Api\Nibo.Dev.Api" />
+
+            </application>
+
+            <application path="/subscription" applicationPool="Nibo.API">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Subscription\Nibo.Subscription.WebApi" />
+
+            </application>
+
+            <application path="/Authentication" applicationPool="Nibo.API" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Authentication\Api\Nibo.Authentication.Api" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Organization.Legacy" SITE.ID="4" bindings="http/*:80:dev-empresa.nibo.com.br" state="Started">
+
+        <site name="Nibo.Organization.Legacy" id="4" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-empresa.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Organization.Legacy" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Organization\Legacy\Nibo.Web" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Hotsite" SITE.ID="5" bindings="http/*:80:nibo.institucional.com.br" state="Started">
+
+        <site name="Nibo.Hotsite" id="5" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:nibo.institucional.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Hotsite">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Hotsite" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Admin" SITE.ID="7" bindings="http/*:80:dev-admin.nibo.com.br" state="Started">
+
+        <site name="Nibo.Admin" id="7" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-admin.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Admin">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\AdminWeb\Nibo.Admin.Web" />
+
+            </application>
+
+            <application path="/authentication/api" applicationPool="Nibo.Admin">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Authentication\Api\Nibo.Authentication.Api" />
+
+            </application>
+
+            <application path="/API" applicationPool="Nibo.Admin" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\AdminWeb\Nibo.Admin.Api" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Organization.App" SITE.ID="8" bindings="http/*:80:dev-app.nibo.com.br,https/*:443:" state="Started">
+
+        <site name="Nibo.Organization.App" id="8" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-app.nibo.com.br" />
+
+                <binding protocol="https" bindingInformation="*:443:" sslFlags="0" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Organization.App" preloadEnabled="true">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\OrganizationApp\wwwroot" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Licensing" SITE.ID="12" bindings="http/*:80:dev-licensing.nibo.com.br" state="Started">
+
+        <site name="Nibo.Licensing" id="12">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-licensing.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Licensing">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Licensing\NiboLicensing" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Organization.Api" SITE.ID="6" bindings="http/*:80:dev-mobile-api.nibo.com.br" state="Started">
+
+        <site name="Nibo.Organization.Api" id="6">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-mobile-api.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Organization.Apí">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Organization\Nibo.Apps.Organization.Api" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Passport.Web" SITE.ID="10" bindings="http/*:80:dev-passport.nibo.com.br" state="Started">
+
+        <site name="Nibo.Passport.Web" id="10" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-passport.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Passport.Web">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Passport\Nibo.Passport.Web" userName="Nibo" password="greenplanet_k3" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+    <SITE SITE.NAME="Nibo.Whitelabel" SITE.ID="14" bindings="http/*:80:dev-nibowhitelabel.nibo.com.br" state="Started">
+
+        <site name="Nibo.Whitelabel" id="14" serverAutoStart="true">
+
+            <bindings>
+
+                <binding protocol="http" bindingInformation="*:80:dev-nibowhitelabel.nibo.com.br" />
+
+            </bindings>
+
+            <limits />
+
+            <logFile>
+
+                <customFields>
+
+                </customFields>
+
+            </logFile>
+
+            <traceFailedRequestsLogging />
+
+            <applicationDefaults />
+
+            <virtualDirectoryDefaults />
+
+            <ftpServer>
+
+                <connections />
+
+                <security>
+
+                    <dataChannelSecurity />
+
+                    <commandFiltering>
+
+                    </commandFiltering>
+
+                    <ssl />
+
+                    <sslClientCertificates />
+
+                    <authentication>
+
+                        <anonymousAuthentication />
+
+                        <basicAuthentication />
+
+                        <clientCertAuthentication />
+
+                        <customAuthentication>
+
+                            <providers>
+
+                            </providers>
+
+                        </customAuthentication>
+
+                    </authentication>
+
+                    <customAuthorization>
+
+                        <provider />
+
+                    </customAuthorization>
+
+                </security>
+
+                <customFeatures>
+
+                    <providers>
+
+                    </providers>
+
+                </customFeatures>
+
+                <messages />
+
+                <fileHandling />
+
+                <firewallSupport />
+
+                <userIsolation>
+
+                    <activeDirectory />
+
+                </userIsolation>
+
+                <directoryBrowse />
+
+                <logFile />
+
+            </ftpServer>
+
+            <application path="/" applicationPool="Nibo.Organization.App">
+
+                <virtualDirectoryDefaults />
+
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\WhiteLabel\wwwroot\" />
+
+            </application>
+
+        </site>
+
+    </SITE>
+
+</appcmd>

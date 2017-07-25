@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<appcmd>
+    <APPPOOL APPPOOL.NAME=".NET v4.5 Classic" PipelineMode="Classic" RuntimeVersion="v4.0" state="Started">
+        <add name=".NET v4.5 Classic" managedRuntimeVersion="v4.0" managedPipelineMode="Classic">
+            <processModel />
+            <recycling>
+                <periodicRestart>
+                    <schedule>
+                    </schedule>
+                </periodicRestart>
+            </recycling>
+            <failure />
+            <cpu />
+            <environmentVariables>
+            </environmentVariables>
+        </add>
+    </APPPOOL>
+    
+    <APPPOOL APPPOOL.NAME=".NET v4.5" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+        <add name=".NET v4.5" managedRuntimeVersion="v4.0">
+            <processModel />
+            <recycling>
+                <periodicRestart>
+                    <schedule>
+                    </schedule>
+                </periodicRestart>
+            </recycling>
+            <failure />
+            <cpu />
+            <environmentVariables>
+            </environmentVariables>
+        </add>
+    </APPPOOL>
+    
+    <APPPOOL APPPOOL.NAME="Nibo.Accountant.Legacy" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Accountant.Legacy" autoStart="true" enable32BitAppOnWin64="true" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.API" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.API" autoStart="true" enable32BitAppOnWin64="true" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Organization.Legacy" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Organization.Legacy" autoStart="true" enable32BitAppOnWin64="false" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Hotsite" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Hotsite" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Mobile.API" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Mobile.API" autoStart="true" enable32BitAppOnWin64="true" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Admin" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Admin" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Organization.App" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Organization.App" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Licensing" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Licensing" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Organization.Apí" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Organization.Apí" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Passport.Web" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+
+        <add name="Nibo.Passport.Web" autoStart="true" managedRuntimeVersion="v4.0">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+    <APPPOOL APPPOOL.NAME="Nibo.Site" PipelineMode="Integrated" RuntimeVersion="" state="Started">
+
+        <add name="Nibo.Site" autoStart="true" managedRuntimeVersion="">
+
+            <processModel />
+
+            <recycling>
+
+                <periodicRestart>
+
+                    <schedule>
+
+                    </schedule>
+
+                </periodicRestart>
+
+            </recycling>
+
+            <failure />
+
+            <cpu />
+
+            <environmentVariables>
+
+            </environmentVariables>
+
+        </add>
+
+    </APPPOOL>
+
+</appcmd>
