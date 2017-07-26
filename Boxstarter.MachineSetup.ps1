@@ -40,10 +40,6 @@ cinst visualstudio2017-workload-netweb
 cinst visualstudio2017-workload-netcoretools
 ############################################################
 
- ### Instalando Dotnet 4.5 ###
-cinst DotNet4.5
-##############################
-
 
 ############## Dev Tools ######################
 cinst NugetPackageExplorer
@@ -141,6 +137,10 @@ cinst WAS-NetFxEnvironment -source windowsfeatures
 cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 ##################################################################################################
+
+ ### Instalando Dotnet 4.5 ###
+cinst DotNet4.5
+##############################
 
 ############# Importando os XML's dos Sites e AppPools pro IIS #####################################
 $importsite = "https://raw.githubusercontent.com/nibodev/machineSetup/master/sites.xml"
