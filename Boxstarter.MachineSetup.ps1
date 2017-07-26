@@ -42,6 +42,7 @@ cinst visualstudio2017-workload-netcoretools
 
 
 ############## Dev Tools ######################
+cinst nuget.commandline
 cinst NugetPackageExplorer
 cinst notepadplusplus.install
 cinst nodejs.install
@@ -138,6 +139,14 @@ cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 ##################################################################################################
 
+########### Habilitando o Asp.net no IIS ##################
+dism /online /enable-feature /featurename:IIS-ASPNET45 /all
+###########################################################
+
+ ### Instalando Dotnet 4.0 ###
+cinst DotNet4.0
+##############################
+
  ### Instalando Dotnet 4.5 ###
 cinst DotNet4.5
 ##############################
@@ -155,8 +164,8 @@ gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
 
 ############################ Clonando repositórios #####################################################################################
 
-mkdir C:\Git
-cd C:\Git
+mkdir C:\Git\NiboProjects
+cd C:\Git\NiboProjects
 
 $url = "https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects"
 $username = Read-host -Prompt "Digite seu email:" #exemplo: xxxx@nibo.com.br
@@ -201,7 +210,42 @@ foreach ($folder in $folders) {
     git remote set-url origin https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects/_git/$folder
     cd ..
 }
-####################################################################################################
+######################################################################################################
+
+cd C:\Git\NiboProjects
+
+########## Restore nas Solutions ###############
+
+$folders = Get-ChildItem -Path '.\' -Directory
+
+foreach ($folder in $folders) {
+    echo $folder.Name
+    cd $folder.Name
+    $solution = Get-ChildItem -Filter *.sln
+    echo $solution
+    nuget.exe restore $solution
+    cd ..
+}
+################################################
+
+cd C:\Git\NiboProjects
+
+########## Buildando as Solutions ###############
+
+$folders = Get-ChildItem -Path '.\' -Directory
+
+foreach ($folder in $folders) {
+    echo $folder.Name
+    cd $folder.Name
+    $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+    echo $msbuild
+    $solution = Get-ChildItem -Filter *.sln
+    echo $solution
+    & $msbuild $solution /t:Rebuild /p:Configuration=Debug /p:Platform="Any CPU"
+    cd ..
+}
+################################################
+
 
 Enable-UAC
 
