@@ -50,6 +50,7 @@ cinst nodejs.install
 cinst ruby
 cinst git
 cinst visualstudiocode
+cinst redis-64
 cinst postman
 cinst cmder
 cinst mssqlserver2014express
