@@ -2,7 +2,7 @@
 
 
 ################## Permite reiniciar #########################################################
-$Boxstarter.RebootOk=$false # Quer reiniciar?
+$Boxstarter.RebootOk=$true # Quer reiniciar?
 $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 ##############################################################################################
@@ -40,6 +40,7 @@ cinst visualstudio2017-workload-netweb
 cinst visualstudio2017-workload-netcoretools
 ############################################################
 
+if (Test-PendingReboot) { Invoke-Reboot }
 
 ############## Dev Tools ######################
 cinst nuget.commandline
@@ -214,39 +215,38 @@ foreach ($folder in $folders) {
 
 cd C:\Git\NiboProjects
 
-########## Restore nas Solutions ###############
+####################### Restore e Build nas Solutions - Percorre todas as .sln e executa o restore e depois builda ######################
 
 $folders = Get-ChildItem -Path '.\' -Directory
+$baseFolder = "C:\Git\NiboProjects"
+$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+cd $baseFolder
 
 foreach ($folder in $folders) {
-    echo $folder.Name
-    cd $folder.Name
-    $solution = Get-ChildItem -Filter *.sln
-    echo $solution
-    nuget.exe restore $solution
-    cd ..
+    cd $folder.FullName
+
+    if($folder.Name -eq "Nibo" -OR $folder.Name -eq "NiboAuthentication" -OR $folder.Name -eq "NiboImport" -OR $folder.Name -eq "NiboInvoice" -OR $folder.Name -eq "NiboTools") {
+       $solutions = Get-ChildItem -Recurse -Filter *.sln
+       foreach($solution in $solutions) {
+          cd $solution.PSParentPath
+          nuget.exe restore $solution
+          & $msbuild $solution /t:Rebuild /p:Configuration=Debug /p:Platform="Any CPU"
+       }
+       
+    }
+
+    else {
+       $solution = Get-ChildItem -Filter *.sln
+       if($solution) {
+           nuget.exe restore $solution
+           & $msbuild $solution /t:Rebuild /p:Configuration=Debug /p:Platform="Any CPU"
+       }
+    }
 }
-################################################
+cd $baseFolder
+########################################################################################################################################
 
-cd C:\Git\NiboProjects
-
-########## Buildando as Solutions ###############
-
-$folders = Get-ChildItem -Path '.\' -Directory
-
-foreach ($folder in $folders) {
-    echo $folder.Name
-    cd $folder.Name
-    $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
-    echo $msbuild
-    $solution = Get-ChildItem -Filter *.sln
-    echo $solution
-    & $msbuild $solution /t:Rebuild /p:Configuration=Debug /p:Platform="Any CPU"
-    cd ..
-}
-################################################
 
 
 Enable-UAC
 
-if (Test-PendingReboot) { Invoke-Reboot }
