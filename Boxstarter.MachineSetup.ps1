@@ -53,7 +53,7 @@ cinst visualstudiocode
 cinst redis-64
 cinst postman
 cinst cmder
-cinst mssqlserver2014express
+cinst sql-server-express
 cinst sql-server-management-studio
 cinst dotnetcore-runtime --pre
 ################################################
@@ -171,6 +171,62 @@ Invoke-WebRequest $importpools -OutFile $pools
 gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
 gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
 ####################################################################################################
+
+
+########################### Restore nos dois Bancos de Dados SQL ################################################
+# Pegando a instância do SQL Server
+$sqlName= "localhost\SQLExpress"
+ 
+# Definindo nome da Database
+$dbname= "Nibo"
+$dbname2= "NiboHangFire"
+ 
+# Armazenando na variavel o caminho do arquivo de backup
+$backupPath= "C:\Script Restore DB\backup_arthur.bak"
+$backupPath2= "C:\Script Restore DB\NiboHangfire.bak"
+ 
+# Lendo as assemblies necessárias SMO e SmoExtended
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.SMO") | Out-Null
+[System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.SmoExtended") | Out-Null
+ 
+# Conectando no SQL Server
+$sqlServer = New-Object ('Microsoft.SqlServer.Management.Smo.Server') $sqlName
+ 
+# Criando instância do objeto SMo Restore
+$dbRestore = new-object ("Microsoft.SqlServer.Management.Smo.Restore")
+$dbRestore2 = new-object ("Microsoft.SqlServer.Management.Smo.Restore")
+ 
+# Definindo a Database e caminho do backup
+$dbRestore.Database = $dbname
+$dbRestore2.Database = $dbname2
+$dbRestore.Devices.AddDevice($backupPath, "File")
+$dbRestore2.Devices.AddDevice($backupPath2, "File")
+ 
+# Definindo o local do arquivo
+$dbRestoreFile = new-object("Microsoft.SqlServer.Management.Smo.RelocateFile")
+$dbRestoreFile2 = new-object("Microsoft.SqlServer.Management.Smo.RelocateFile")
+$dbRestoreLog = new-object("Microsoft.SqlServer.Management.Smo.RelocateFile")
+$dbRestoreLog2 = new-object("Microsoft.SqlServer.Management.Smo.RelocateFile")
+$dbRestoreFile.LogicalFileName = $dbname
+$dbRestoreFile2.LogicalFileName = $dbname2
+$dbRestoreFile.PhysicalFileName = $sqlServer.Information.MasterDBPath + "\" + $dbRestore.Database + "_Data.mdf"
+$dbRestoreFile2.PhysicalFileName = $sqlServer.Information.MasterDBPath + "\" + $dbRestore2.Database + "_Data.mdf"
+$dbRestoreLog.LogicalFileName = $dbname + "_Log"
+$dbRestoreLog2.LogicalFileName = $dbname2 + "_Log"
+$dbRestoreLog.PhysicalFileName = $sqlServer.Information.MasterDBLogPath + "\" + $dbRestore.Database + "_Log.ldf"
+$dbRestoreLog2.PhysicalFileName = $sqlServer.Information.MasterDBLogPath + "\" + $dbRestore2.Database + "_Log.ldf"
+$dbRestore.RelocateFiles.Add($dbRestoreFile)
+$dbRestore2.RelocateFiles.Add($dbRestoreFile2)
+$dbRestore.RelocateFiles.Add($dbRestoreLog)
+$dbRestore2.RelocateFiles.Add($dbRestoreLog2)
+ 
+# Chamando o método SqlRestore para completar a restauração da database 
+$dbRestore.SqlRestore($sqlServer)
+$dbRestore2.SqlRestore($sqlServer2)
+ 
+Write-Host "Banco de dados "$dbname e $dbname2" restaurados com sucesso!"
+########################################################################################################################
+
 
 ############################ Clonando repositórios #####################################################################################
 
