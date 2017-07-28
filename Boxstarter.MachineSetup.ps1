@@ -7,6 +7,7 @@ $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 ##############################################################################################
 
+Write-Host "Executando regras básicas..."
 
 ######### Regras básicas ###############################################################################################################################################################################################################
 Update-ExecutionPolicy Unrestricted
@@ -16,6 +17,8 @@ Disable-InternetExplorerESC
 Disable-BingSearch
 Disable-UAC
 ########################################################################################################################################################################################################################################
+
+Write-Host "Colocando imagem no plano de fundo e no profile do usuário..."
 
 ###################### Colocar imagem no plano de fundo e no profile do usuário #############################################
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
@@ -27,12 +30,15 @@ Set-ItemProperty -path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\AccountPi
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 #############################################################################################################################
 
+Write-Host "Adicionando arquivo Hosts..."
+
 ################ Adicionando arquivo Hosts ####################################
 $hosts = "https://raw.githubusercontent.com/nibodev/machineSetup/master/hosts"
 $hostsFile = "C:\Windows\System32\drivers\etc\hosts"
 Invoke-WebRequest $hosts -OutFile $hostsFile
 ###############################################################################
 
+Write-Host "Instalando Visual Studio 2017 Community..."
 
 ######## Instalar Visual Studio 2017 Community #############
 cinst visualstudio2017community --package-parameters "--locale en-US"
@@ -41,6 +47,8 @@ cinst visualstudio2017-workload-netcoretools
 ############################################################
 
 if (Test-PendingReboot) { Invoke-Reboot }
+
+Write-Host "Instalando Dev Tools..."
 
 ############## Dev Tools ######################
 cinst nuget.commandline
@@ -62,6 +70,8 @@ cinst dotnetcore-runtime --pre
 RefreshEnv.cmd
 ###########################################
 
+Write-Host "Instalando módulos NPM..."
+
 ###### Instalando módulos NPM #####
 npm install bower -g
 npm install gulp -g
@@ -71,6 +81,8 @@ npm install gulp -g
 RefreshEnv.cmd
 ###########################################
 
+Write-Host "Adicionando variáveis de ambiente..."
+
 ########### Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel ##############
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
 ############################################################################################################################
@@ -78,6 +90,8 @@ $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS 
 #### Refresh nas variáveis de ambiente ####
 RefreshEnv.cmd
 ###########################################
+
+Write-Host "Instalando apps essenciais..."
 
 ####### Apps Essenciais ############
 #cinst zoiper --version 3.9
@@ -87,6 +101,7 @@ cinst slack
 cinst spotify
 ##################################
 
+Write-Host "Adicionando atalho do Visual Studio..."
 
 ######################## Atalho Visual Studio ##############################################################
 $WshShell = New-Object -comObject WScript.Shell
@@ -95,6 +110,7 @@ $Shortcut.TargetPath = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Comm
 $Shortcut.Save()
 ############################################################################################################
 
+Write-Host "Instalando o IIS..."
 
 ########################## Instalando IIS e seus componentes #####################################
 cinst IIS-WebServerRole -source windowsfeatures
@@ -149,17 +165,25 @@ cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 ##################################################################################################
 
+Write-Host "Habilitando o Asp.Net no IIS..."
+
 ########### Habilitando o Asp.net no IIS ##################
 dism /online /enable-feature /featurename:IIS-ASPNET45 /all
 ###########################################################
+
+Write-Host "Instalando DotNet 4.0..."
 
  ### Instalando Dotnet 4.0 ###
 cinst DotNet4.0
 ##############################
 
+Write-Host "Instalando DotNet 4.5..."
+
  ### Instalando Dotnet 4.5 ###
 cinst DotNet4.5
 ##############################
+
+Write-Host "Importando os XML's dos Sites e AppPools pro IIS..."
 
 ############# Importando os XML's dos Sites e AppPools pro IIS #####################################
 $importsite = "https://raw.githubusercontent.com/nibodev/machineSetup/master/sites.xml"
@@ -172,6 +196,7 @@ gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
 gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
 ####################################################################################################
 
+Write-Host "Clonando repositórios..."
 
 ############################ Clonando repositórios #####################################################################################
 
@@ -219,6 +244,7 @@ foreach ($entry in $json.value) {
 }
 #######################################################################################################################################
 
+Write-Host "Iniciando restore nas databases..."
 
 ########################### Restore nos dois Bancos de Dados SQL ################################################
 # Pegando a instância do SQL Server
@@ -274,6 +300,7 @@ $dbRestore2.SqlRestore($sqlServer2)
 Write-Host "Bancos de Dados "$dbname e $dbname2" restaurados com sucesso!"
 ########################################################################################################################
 
+Write-Host "Adicionando URL original no repositório git para o Visual Studio identificar..."
 
 ########## Colocando a URL original do repositório git para o Visual Studio identificar #############
 
@@ -288,6 +315,8 @@ foreach ($folder in $folders) {
 ######################################################################################################
 
 cd C:\Git\NiboProjects
+
+Write-Host "Executando restore e build nas solutions..."
 
 ####################### Restore e Build nas Solutions - Percorre todas as .sln e executa o restore e depois builda ######################
 
