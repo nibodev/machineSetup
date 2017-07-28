@@ -72,7 +72,7 @@ RefreshEnv.cmd
 ###########################################
 
 ####### Apps Essenciais ############
-cinst zoiper --version 3.9
+#cinst zoiper --version 3.9
 cinst googlechrome
 cinst skype
 cinst slack
