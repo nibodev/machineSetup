@@ -178,6 +178,15 @@ mkdir C:\Git\NiboProjects
 cd C:\Git\NiboProjects
 
 $url = "https://nibogestao.visualstudio.com/DefaultCollection/NiboProjects"
+
+Write-Host "Se você já está com o email e token para baixar os repositórios, pressione `"Enter`" para continuar"
+do
+{
+$key = [Console]::ReadKey("noecho")
+}
+while($key.Key -ne "Enter")
+Write-Host "Continuando o script.."
+
 $username = Read-host -Prompt "Digite seu email:" #exemplo: xxxx@nibo.com.br
 $password = Read-host -Prompt "Digite o seu token para baixar os repositorios:" #precisa do token de acesso dos repositorios do visual studio
 
