@@ -62,6 +62,14 @@ cinst dotnetcore-runtime --pre
 RefreshEnv.cmd
 ###########################################
 
+###### Instalando módulos NPM #####
+npm install bower -g
+npm install gulp -g
+###################################
+
+#### Refresh nas variáveis de ambiente ####
+RefreshEnv.cmd
+###########################################
 
 ########### Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel ##############
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
