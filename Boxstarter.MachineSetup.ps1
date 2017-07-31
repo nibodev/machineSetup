@@ -304,7 +304,7 @@ $dbRestore2.RelocateFiles.Add($dbRestoreLog2)
  
 # Chamando o método SqlRestore para completar a restauração da database 
 $dbRestore.SqlRestore($sqlServer)
-$dbRestore2.SqlRestore($sqlServer2)
+$dbRestore2.SqlRestore($sqlServer)
  
 Write-Host "Bancos de Dados "$dbname e $dbname2" restaurados com sucesso!"
 ########################################################################################################################
