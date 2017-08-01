@@ -175,6 +175,8 @@ cinst IIS-ManagementService -source windowsfeatures
 
 if (Test-PendingReboot) { Invoke-Reboot }
 
+refreshend.cmd
+
 Write-Host "Habilitando o Asp.Net no IIS..."
 
 ########### Habilitando o Asp.net no IIS ##################
@@ -194,6 +196,8 @@ cinst DotNet4.5
 ##############################
 
 if (Test-PendingReboot) { Invoke-Reboot }
+
+refreshenv.cmd
 
 Write-Host "Importando os XML's dos Sites e AppPools pro IIS..."
 
