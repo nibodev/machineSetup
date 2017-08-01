@@ -8,6 +8,10 @@ Set-ExecutionPolicy Unrestricted
 . { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
 Install-BoxstarterPackage -PackageName http://bit.ly/2u5T5vw
 ```
+- Logo depois de executar o comando, irá aparecer uma confirmação de Alteração da Política de Execução, tecle a letra A e dê Enter:
+
+![Alt text](https://github.com/nibodev/machineSetup/blob/master/Screenshot_2.png?raw=true "Optional Title")
+
 
 - Após o script reiniciar pela primeira vez o Windows, ele irá abrir automaticamente e pedir a credencial do usuário, após isso, o script irá autenticar sozinho no sistema quando tiver algum outro reboot.
 
