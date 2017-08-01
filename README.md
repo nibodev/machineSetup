@@ -1,7 +1,7 @@
 # Script para automatizar a instalação do ambiente Dev.
 
 
-- Para permitir a instalação do Boxstater e executar o script, abra o Powershell como Administrador copie, cole e execute o comando: 
+- Para permitir a instalação do Boxstater e executar o script, abra o Powershell como Administrador. Copie, cole e execute o comando: 
 
 ```powershell
 Set-ExecutionPolicy Unrestricted
