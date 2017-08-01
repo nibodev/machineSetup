@@ -7,18 +7,18 @@ $Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
 $Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 ##############################################################################################
 
-Write-Host "Executando regras básicas..."
+Write-Host "Executando regras basicas..."
 
 ######### Regras básicas ###############################################################################################################################################################################################################
 Update-ExecutionPolicy Unrestricted
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
+Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
 Enable-RemoteDesktop
 Disable-InternetExplorerESC
 Disable-BingSearch
 Disable-UAC
 ########################################################################################################################################################################################################################################
 
-Write-Host "Colocando imagem no plano de fundo do usuário..."
+Write-Host "Colocando imagem no plano de fundo do usuario..."
 
 ###################### Colocar imagem no plano de fundo do usuário #############################################
 $wallpaperUrl = "https://raw.githubusercontent.com/nibodev/machineSetup/master/Nibo-Wallpaper-1366x768.png"
@@ -70,7 +70,7 @@ cinst dotnetcore-runtime --pre
 RefreshEnv.cmd
 ###########################################
 
-Write-Host "Instalando módulos NPM..."
+Write-Host "Instalando modulos NPM..."
 
 ###### Instalando módulos NPM #####
 npm install bower -g
@@ -81,7 +81,7 @@ npm install gulp -g
 RefreshEnv.cmd
 ###########################################
 
-Write-Host "Adicionando variáveis de ambiente..."
+Write-Host "Adicionando variaveis de ambiente..."
 
 ########### Adicionando variavel de ambiente $env:nomedavariavel = $env:nomedavariavel + "caminho da variavel ##############
 $env:Path = $env:Path + ";C:\Ruby23-x64\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Nibo\AppData\Roaming\npm"
@@ -205,7 +205,7 @@ gc .\sites.xml | C:\Windows\System32\inetsrv\appcmd.exe add site /in
 gc .\apppools.xml | C:\Windows\System32\inetsrv\appcmd.exe add apppool /in
 ####################################################################################################
 
-Write-Host "Clonando repositórios..."
+Write-Host "Clonando repositorios..."
 
 ############################ Clonando repositórios #####################################################################################
 
@@ -309,7 +309,7 @@ $dbRestore2.SqlRestore($sqlServer)
 Write-Host "Bancos de Dados "$dbname e $dbname2" restaurados com sucesso!"
 ########################################################################################################################
 
-Write-Host "Adicionando URL original no repositório git para o Visual Studio identificar..."
+Write-Host "Adicionando URL original no repositorio git para o Visual Studio identificar..."
 
 ########## Colocando a URL original do repositório git para o Visual Studio identificar #############
 
