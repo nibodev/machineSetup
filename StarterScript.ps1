@@ -4,6 +4,4 @@ Set-ExecutionPolicy Unrestricted
 
 refreshenv.cmd
 
-$cred = Get-Credential $env:username
-
-Install-BoxstarterPackage -PackageName http://bit.ly/2u5T5vw -Credential $cred
+Install-BoxstarterPackage -PackageName http://bit.ly/2u5T5vw
