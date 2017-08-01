@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <appcmd>
-    <APPPOOL APPPOOL.NAME=".NET v4.5 Classic" PipelineMode="Classic" RuntimeVersion="v4.0" state="Started">
-        <add name=".NET v4.5 Classic" managedRuntimeVersion="v4.0" managedPipelineMode="Classic">
-            <processModel />
-            <recycling>
-                <periodicRestart>
-                    <schedule>
-                    </schedule>
-                </periodicRestart>
-            </recycling>
-            <failure />
-            <cpu />
-            <environmentVariables>
-            </environmentVariables>
-        </add>
-    </APPPOOL>
-    
-    <APPPOOL APPPOOL.NAME=".NET v4.5" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
-        <add name=".NET v4.5" managedRuntimeVersion="v4.0">
-            <processModel />
-            <recycling>
-                <periodicRestart>
-                    <schedule>
-                    </schedule>
-                </periodicRestart>
-            </recycling>
-            <failure />
-            <cpu />
-            <environmentVariables>
-            </environmentVariables>
-        </add>
-    </APPPOOL>
-    
     <APPPOOL APPPOOL.NAME="Nibo.Accountant.Legacy" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
 
         <add name="Nibo.Accountant.Legacy" autoStart="true" enable32BitAppOnWin64="true" managedRuntimeVersion="v4.0">
