@@ -935,7 +935,7 @@
 
             </ftpServer>
 
-            <application path="/" applicationPool="Nibo.Organization.Apí">
+            <application path="/" applicationPool="Nibo.Organization.Api">
 
                 <virtualDirectoryDefaults />
 
