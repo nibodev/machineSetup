@@ -113,8 +113,8 @@ Write-Host "Adicionando atalho do SQL Server 2014 Management Studio..."
 
 ########################### Atalho SQL Server ##############################################################
 $WshShell = New-Object -comObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Visual Studio 2017 Community.lnk")
-$Shortcut.TargetPath = "C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\Ssms.exe"
+$Shortcut = $WshShell2.CreateShortcut("$Home\Desktop\SQL Server 2014 Management Studio.lnk")
+$Shortcut.TargetPath = "C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\Ssms.exe"
 $Shortcut.Save()
 ############################################################################################################
 
