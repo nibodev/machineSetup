@@ -11,7 +11,7 @@ Write-Host "Executando regras basicas..."
 
 ######### Regras básicas ###############################################################################################################################################################################################################
 Update-ExecutionPolicy Unrestricted
-Set-WindowsExplorerOptions -EnableShowProtectedOSFiles -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions -DisableOpenFileExplorerToQuickAccess -DisableShowRecentFilesInQuickAccess -DisableShowFrequentFoldersInQuickAccess
 Enable-RemoteDesktop
 Disable-InternetExplorerESC
 Disable-BingSearch
