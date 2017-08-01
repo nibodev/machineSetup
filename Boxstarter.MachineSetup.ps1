@@ -57,6 +57,8 @@ cinst notepadplusplus.install
 cinst nodejs.install
 cinst ruby
 cinst git
+cinst gulp-cli
+cinst bower
 cinst visualstudiocode
 cinst redis-64
 cinst postman
@@ -70,16 +72,7 @@ cinst dotnetcore-runtime --pre
 RefreshEnv.cmd
 ###########################################
 
-Write-Host "Instalando modulos NPM..."
-
-###### Instalando módulos NPM #####
-npm install bower -g
-npm install gulp -g
-###################################
-
-#### Refresh nas variáveis de ambiente ####
-RefreshEnv.cmd
-###########################################
+if (Test-PendingReboot) { Invoke-Reboot }
 
 Write-Host "Adicionando variaveis de ambiente..."
 
