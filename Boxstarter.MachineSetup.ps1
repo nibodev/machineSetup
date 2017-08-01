@@ -173,6 +173,8 @@ cinst WAS-ConfigurationAPI -source windowsfeatures
 cinst IIS-ManagementService -source windowsfeatures
 ##################################################################################################
 
+if (Test-PendingReboot) { Invoke-Reboot }
+
 Write-Host "Habilitando o Asp.Net no IIS..."
 
 ########### Habilitando o Asp.net no IIS ##################
@@ -190,6 +192,8 @@ Write-Host "Instalando DotNet 4.5..."
  ### Instalando Dotnet 4.5 ###
 cinst DotNet4.5
 ##############################
+
+if (Test-PendingReboot) { Invoke-Reboot }
 
 Write-Host "Importando os XML's dos Sites e AppPools pro IIS..."
 
