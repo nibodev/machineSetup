@@ -30,6 +30,12 @@ Invoke-WebRequest $wallpaperUrl -OutFile $wallpaperFile
 Set-ItemProperty -path "HKCU:Control Panel\Desktop" -name Wallpaper -value $wallpaperFile
 #############################################################################################################################
 
+Write-Host "Removendo atalho do Boxstarter..."
+
+############## Removendo atalho do Boxstarter ############
+Remove-Item C:\Users\Public\Desktop\Boxstarter*.lnk -Force
+###########################################################
+
 Write-Host "Adicionando arquivo Hosts..."
 
 ################ Adicionando arquivo Hosts ####################################
