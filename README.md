@@ -1,7 +1,9 @@
 # Script para automatizar a instalação do ambiente Dev.
 
 
-- Para instalar o Boxstarter, execute o comando no Powershell: . { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+- Para permitir a instalação do Boxstater, execute o comando no Powershell: Set-ExecutionPolicy Unrestricted.
+
+- Agora execute o comando também no Powershell para instalar o Boxstarter: . { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
 
 - Após terminar a instalação do Boxstarter, execute o comando no Powershell ou CMD para iniciar o script: Install-BoxstarterPackage -PackgeName bit.ly/2u5T5vw
 
