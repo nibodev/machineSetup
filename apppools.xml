@@ -241,7 +241,7 @@
 
     </APPPOOL>
 
-    <APPPOOL APPPOOL.NAME="Nibo.Organization.Apí" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
+    <APPPOOL APPPOOL.NAME="Nibo.Organization.Api" PipelineMode="Integrated" RuntimeVersion="v4.0" state="Started">
 
         <add name="Nibo.Organization.Apí" managedRuntimeVersion="v4.0">
 
