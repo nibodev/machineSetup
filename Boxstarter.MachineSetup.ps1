@@ -2,9 +2,9 @@
 
 
 ################## Permite reiniciar #########################################################
-$Boxstarter.RebootOk=$true # Quer reiniciar?
-$Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
-$Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
+#$Boxstarter.RebootOk=$true # Quer reiniciar?
+#$Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
+#$Boxstarter.AutoLogin=$true # Quer que o boxstarter coloque usuario e senha automaticamente?
 ##############################################################################################
 
 Write-Host "Executando regras basicas..."
