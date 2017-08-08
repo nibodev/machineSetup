@@ -336,7 +336,67 @@ cd C:\Git\NiboProjects
 
 Write-Host "Executando restore e build nas solutions..."
 
-####################### Restore e Build nas Solutions - Percorre todas as .sln e executa o restore e depois builda ######################
+
+############################################ Primeiro Nuget Restore nas Solutions ######################################################
+
+$folders = Get-ChildItem -Path '.\' -Directory
+$baseFolder = "C:\Git\NiboProjects"
+$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+cd $baseFolder
+
+foreach ($folder in $folders) {
+    cd $folder.FullName
+
+    if($folder.Name -eq "Nibo" -OR $folder.Name -eq "NiboAuthentication" -OR $folder.Name -eq "NiboImport" -OR $folder.Name -eq "NiboInvoice" -OR $folder.Name -eq "NiboTools") {
+       $solutions = Get-ChildItem -Recurse -Filter *.sln
+       foreach($solution in $solutions) {
+          cd $solution.PSParentPath
+          nuget.exe restore $solution
+       }
+       
+    }
+
+    else {
+       $solution = Get-ChildItem -Filter *.sln
+       if($solution) {
+           nuget.exe restore $solution
+       }
+    }
+}
+cd $baseFolder
+########################################################################################################################################
+
+############################################ Segundo Nuget Restore nas Solutions ######################################################
+
+$folders = Get-ChildItem -Path '.\' -Directory
+$baseFolder = "C:\Git\NiboProjects"
+$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+cd $baseFolder
+
+foreach ($folder in $folders) {
+    cd $folder.FullName
+
+    if($folder.Name -eq "Nibo" -OR $folder.Name -eq "NiboAuthentication" -OR $folder.Name -eq "NiboImport" -OR $folder.Name -eq "NiboInvoice" -OR $folder.Name -eq "NiboTools") {
+       $solutions = Get-ChildItem -Recurse -Filter *.sln
+       foreach($solution in $solutions) {
+          cd $solution.PSParentPath
+          nuget.exe restore $solution
+       }
+       
+    }
+
+    else {
+       $solution = Get-ChildItem -Filter *.sln
+       if($solution) {
+           nuget.exe restore $solution
+       }
+    }
+}
+cd $baseFolder
+########################################################################################################################################
+
+
+####################### Build nas Solutions - Percorre todas as .sln e executa o MSBuild ######################
 
 $folders = Get-ChildItem -Path '.\' -Directory
 $baseFolder = "C:\Git\NiboProjects"
@@ -366,7 +426,6 @@ foreach ($folder in $folders) {
 }
 cd $baseFolder
 ########################################################################################################################################
-
 
 
 Enable-UAC
