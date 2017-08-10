@@ -71,7 +71,7 @@ cinst postman
 cinst cmder
 cinst sql-server-express
 cinst sql-server-management-studio
-cinst dotnetcore-runtime --pre
+cinst dotnetcore
 ################################################
 
 #### Refresh nas variáveis de ambiente ####
