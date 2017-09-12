@@ -391,7 +391,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Organization\Legacy\Nibo.Web" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboOrganizationLegacy\Nibo.Web" />
 
             </application>
 
