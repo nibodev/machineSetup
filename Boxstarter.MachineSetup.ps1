@@ -18,6 +18,16 @@ Disable-BingSearch
 Disable-UAC
 ########################################################################################################################################################################################################################################
 
+Write-BoxstarterMessage "Configurando Suspender Computador para Nunca"
+
+& powercfg.exe -change -standby-timeout-ac 0
+& powercfg.exe -change -standby-timeout-dc 0
+
+Write-BoxstarterMessage "Conigurando Desligar Vídeo para Nunca"
+& powercfg.exe -change -monitor-timeout-ac 0
+& powercfg.exe -change -monitor-timeout-dc 0
+
+
 Write-Host "Colocando imagem no plano de fundo do usuario..."
 
 ###################### Colocar imagem no plano de fundo do usuário #############################################
@@ -426,6 +436,15 @@ foreach ($folder in $folders) {
 }
 cd $baseFolder
 ########################################################################################################################################
+
+Write-BoxstarterMessage "Configurando Suspender Computador para 15 minutos na bateria e 30 conectado"
+
+& powercfg.exe -change -standby-timeout-ac 15
+& powercfg.exe -change -standby-timeout-dc 30
+
+Write-BoxstarterMessage "Conigurando Desligar Vídeo para 5 minutos na bateria e 10 minutos conectado"
+& powercfg.exe -change -monitor-timeout-ac 5
+& powercfg.exe -change -monitor-timeout-dc 10
 
 
 Enable-UAC
