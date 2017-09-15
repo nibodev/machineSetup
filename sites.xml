@@ -611,7 +611,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Authentication\Api\Nibo.Authentication.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboAuthentication\Api\Nibo.Authentication.Api" />
 
             </application>
 
