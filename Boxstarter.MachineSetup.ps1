@@ -329,6 +329,25 @@ $dbRestore2.SqlRestore($sqlServer)
 Write-Host "Bancos de Dados "$dbname e $dbname2" restaurados com sucesso!"
 ########################################################################################################################
 
+Write-Host "Habilitando autenticação no SQL Server com SQL Login..."
+
+###########################################################################################################################
+
+Invoke-Sqlcmd -Query "USE [master]
+GO
+EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
+GO" -ServerInstance "localhost\SQLExpress"
+
+###########################################################################################################################
+
+Write-Host "Reiniciando o serviço do SQL Server Express..."
+
+##########################################
+
+Restart-Service -Name 'MSSQL$SQLEXPRESS'
+
+##########################################
+
 Write-Host "Criando usuário Desenv no SQL Server e adicionando permissão full..."
 
 ########################################################################################################################
