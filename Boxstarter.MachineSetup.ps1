@@ -82,6 +82,7 @@ cinst cmder
 cinst sql-server-express
 cinst sql-server-management-studio
 cinst dotnetcore
+cinst azure-documentdb-emulator
 ################################################
 
 #### Refresh nas variáveis de ambiente ####
