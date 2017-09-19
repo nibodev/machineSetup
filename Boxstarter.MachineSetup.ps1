@@ -340,14 +340,6 @@ GO" -ServerInstance "localhost\SQLExpress"
 
 ###########################################################################################################################
 
-Write-Host "Reiniciando o serviço do SQL Server Express..."
-
-##########################################
-
-Restart-Service -Name 'MSSQL$SQLEXPRESS'
-
-##########################################
-
 Write-Host "Criando usuário Desenv no SQL Server e adicionando permissão full..."
 
 ########################################################################################################################
@@ -402,6 +394,14 @@ ALTER ROLE [db_owner] ADD MEMBER [desenv]
 GO" -ServerInstance "localhost\SQLExpress"
 
 #############################################################################################################################
+
+Write-Host "Reiniciando o serviço do SQL Server Express..."
+
+##########################################
+
+Restart-Service -Name 'MSSQL$SQLEXPRESS'
+
+##########################################
 
 Write-Host "Adicionando URL original no repositorio git para o Visual Studio identificar..."
 
