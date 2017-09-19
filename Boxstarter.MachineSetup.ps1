@@ -329,79 +329,6 @@ $dbRestore2.SqlRestore($sqlServer)
 Write-Host "Bancos de Dados "$dbname e $dbname2" restaurados com sucesso!"
 ########################################################################################################################
 
-Write-Host "Habilitando autenticação no SQL Server com SQL Login..."
-
-###########################################################################################################################
-
-Invoke-Sqlcmd -Query "USE [master]
-GO
-EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
-GO" -ServerInstance "localhost\SQLExpress"
-
-###########################################################################################################################
-
-Write-Host "Criando usuário Desenv no SQL Server e adicionando permissão full..."
-
-########################################################################################################################
-
-$SqlServer = "localhost\SQLExpress"
-$SqlDBName = "Nibo"
-$SqlDBName1 = "NiboHangFire"
- 
-Add-Type -Path "C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
- 
-$SqlServer = New-Object Microsoft.SqlServer.Management.Smo.Server($SqlServer)
- 
-$SqlServer.Logins |
-    Select-Object Name, LoginType, Parent
- 
-$NewLoginCredentials = "desenv"
-$NewLoginCredentialsPassword = "desenv"
-$NewLogin = New-Object Microsoft.SqlServer.Management.Smo.Login($SqlServer, $NewLoginCredentials)
-$NewLogin.LoginType = [Microsoft.SqlServer.Management.Smo.LoginType]::SqlLogin
-$NewLogin.Create($NewLoginCredentialsPassword)
- 
-$NewUser = New-Object Microsoft.SqlServer.Management.Smo.User($SqlServer.Databases[$SqlDBName], $NewLoginCredentials)
-$NewUser1 = New-Object Microsoft.SqlServer.Management.Smo.User($SqlServer.Databases[$SqlDBName1], $NewLoginCredentials)
-$NewUser.Login = $NewLoginCredentials
-$NewUser1.Login = $NewLoginCredentials
-$NewUser.Create()
-$NewUser1.Create()
-
-Invoke-Sqlcmd -Query "ALTER SERVER ROLE [bulkadmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [dbcreator] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [diskadmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [processadmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [securityadmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [serveradmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [setupadmin] ADD MEMBER [desenv]
-GO
-ALTER SERVER ROLE [sysadmin] ADD MEMBER [desenv]
-GO
-USE [NiboHangFire]
-GO
-ALTER ROLE [db_owner] ADD MEMBER [desenv]
-GO
-USE [Nibo]
-GO
-ALTER ROLE [db_owner] ADD MEMBER [desenv]
-GO" -ServerInstance "localhost\SQLExpress"
-
-#############################################################################################################################
-
-Write-Host "Reiniciando o serviço do SQL Server Express..."
-
-##########################################
-
-Restart-Service -Name 'MSSQL$SQLEXPRESS'
-
-##########################################
 
 Write-Host "Adicionando URL original no repositorio git para o Visual Studio identificar..."
 
@@ -523,4 +450,78 @@ Write-BoxstarterMessage "Conigurando Desligar Vídeo para 5 minutos na bateria e
 
 
 Enable-UAC
+
+Write-Host "Habilitando autenticação no SQL Server com SQL Login..."
+
+###########################################################################################################################
+
+Invoke-Sqlcmd -Query "USE [master]
+GO
+EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
+GO" -ServerInstance "localhost\SQLExpress"
+
+###########################################################################################################################
+
+Write-Host "Criando usuário Desenv no SQL Server e adicionando permissão full..."
+
+########################################################################################################################
+
+$SqlServer = "localhost\SQLExpress"
+$SqlDBName = "Nibo"
+$SqlDBName1 = "NiboHangFire"
+ 
+Add-Type -Path "C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
+ 
+$SqlServer = New-Object Microsoft.SqlServer.Management.Smo.Server($SqlServer)
+ 
+$SqlServer.Logins |
+    Select-Object Name, LoginType, Parent
+ 
+$NewLoginCredentials = "desenv"
+$NewLoginCredentialsPassword = "desenv"
+$NewLogin = New-Object Microsoft.SqlServer.Management.Smo.Login($SqlServer, $NewLoginCredentials)
+$NewLogin.LoginType = [Microsoft.SqlServer.Management.Smo.LoginType]::SqlLogin
+$NewLogin.Create($NewLoginCredentialsPassword)
+ 
+$NewUser = New-Object Microsoft.SqlServer.Management.Smo.User($SqlServer.Databases[$SqlDBName], $NewLoginCredentials)
+$NewUser1 = New-Object Microsoft.SqlServer.Management.Smo.User($SqlServer.Databases[$SqlDBName1], $NewLoginCredentials)
+$NewUser.Login = $NewLoginCredentials
+$NewUser1.Login = $NewLoginCredentials
+$NewUser.Create()
+$NewUser1.Create()
+
+Invoke-Sqlcmd -Query "ALTER SERVER ROLE [bulkadmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [dbcreator] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [diskadmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [processadmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [securityadmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [serveradmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [setupadmin] ADD MEMBER [desenv]
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [desenv]
+GO
+USE [NiboHangFire]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [desenv]
+GO
+USE [Nibo]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [desenv]
+GO" -ServerInstance "localhost\SQLExpress"
+
+#############################################################################################################################
+
+Write-Host "Reiniciando o serviço do SQL Server Express..."
+
+##########################################
+
+Restart-Service -Name 'MSSQL$SQLEXPRESS'
+
+##########################################
 
