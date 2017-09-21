@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <appcmd>
-    <SITE SITE.NAME="Nibo.Accountant.Legacy" SITE.ID="2" bindings="http/*:80:dev-contador.nibo.com.br" state="Started">
+
+       <SITE SITE.NAME="Nibo.Accountant.Legacy" SITE.ID="2" bindings="http/*:80:dev-contador.nibo.com.br" state="Started">
 
         <site name="Nibo.Accountant.Legacy" id="2" serverAutoStart="true">
 
@@ -99,7 +100,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\AccountantLegacy\Nibo.Accountant" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboAccountantLegacy\Nibo.Accountant" />
 
             </application>
 
@@ -205,7 +206,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\dummy" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Nibo\dummy\Api" />
 
             </application>
 
@@ -213,7 +214,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Accountant\Api\Nibo.Accountant.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Nibo\Accountant\Api\Nibo.Accountant.Api" />
 
             </application>
 
@@ -221,7 +222,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\BillingCentral\Nibo.BillingCentral.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboBilling" />
 
             </application>
 
@@ -229,7 +230,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\CoreAPI\Nibo.Core.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboCoreAPI\Nibo.Core.Api" />
 
             </application>
 
@@ -237,15 +238,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Import\Api\Nibo.Import.Api" />
-
-            </application>
-
-            <application path="/Onboarding" applicationPool="Nibo.API" preloadEnabled="true">
-
-                <virtualDirectoryDefaults />
-
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\OnBoading\Nibo.OnBoarding.WebApi" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboImport\Api\Nibo.Import.Api" />
 
             </application>
 
@@ -253,7 +246,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Invoice\Api\Nibo.Invoice.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboInvoice\Api\Nibo.Invoice.Api" />
 
             </application>
 
@@ -261,7 +254,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Projects\Documents\Nibo.Documents.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Nibo\Documents\Nibo.Documents.Api" />
 
             </application>
 
@@ -269,7 +262,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Tools\Dev\Api\Nibo.Dev.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Nibo\_Dev\Api\Nibo.Dev.Api" />
 
             </application>
 
@@ -277,7 +270,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Subscription\Nibo.Subscription.WebApi" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboSubscription\Nibo.Subscription.Api" />
 
             </application>
 
@@ -285,7 +278,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Authentication\Api\Nibo.Authentication.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboAuthentication\Api\Nibo.Authentication.Api" />
 
             </application>
 
@@ -603,7 +596,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\AdminWeb\Nibo.Admin.Web" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboAdminWeb\Nibo.Admin.Api" />
 
             </application>
 
@@ -727,7 +720,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\OrganizationApp\wwwroot" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboOrganization\Nibo.Apps.Organization.AppService" />
 
             </application>
 
@@ -833,7 +826,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Licensing\NiboLicensing" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboLicensing\NiboLicensing" />
 
             </application>
 
@@ -939,7 +932,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Organization\Nibo.Apps.Organization.Api" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboOrganization\Nibo.Apps.Organization.Api" />
 
             </application>
 
@@ -1045,7 +1038,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\Passport\Nibo.Passport.Web" userName="Nibo" password="greenplanet_k3" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboPassport\Nibo.Passport.Web" userName="Nibo" password="greenplanet_k3" />
 
             </application>
 
@@ -1151,7 +1144,7 @@
 
                 <virtualDirectoryDefaults />
 
-                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\WhiteLabel\wwwroot\" />
+                <virtualDirectory path="/" physicalPath="C:\Git\NiboProjects\NiboWhiteLabel\app" />
 
             </application>
 
