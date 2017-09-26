@@ -273,6 +273,15 @@ foreach ($entry in $json.value) {
 }
 #######################################################################################################################################
 
+Write-Host "Adicionando usuário do IIS com permissão full na pasta NiboProjects..."
+
+####################################################################################################################################################
+$permission = Get-Acl "C:\Git\NiboProjects"
+$user = New-Object System.Security.AccessControl.FileSystemAccessRule("IIS_IUSRS", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
+$permission.SetAccessRule($user)
+Set-Acl "C:\Git\NiboProjects" $permission
+####################################################################################################################################################
+
 Write-Host "Iniciando restore nas databases..."
 
 ########################### Restore nos dois Bancos de Dados SQL ################################################
