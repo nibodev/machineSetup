@@ -1,6 +1,8 @@
 #Boxstarter script ambiente dev
 
 
+#chocolatey feature enable -n allowGlobalConfirmation
+
 ################## Permite reiniciar #########################################################
 #$Boxstarter.RebootOk=$true # Quer reiniciar?
 #$Boxstarter.NoPassword=$false # A máquina não tem senha no usuario?
