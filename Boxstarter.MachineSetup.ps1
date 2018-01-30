@@ -82,6 +82,7 @@ cinst visualstudiocode
 cinst redis-64
 cinst postman
 cinst cmder
+cinst python
 cinst sql-server-express
 cinst sql-server-management-studio
 cinst dotnetcore
