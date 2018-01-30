@@ -62,6 +62,7 @@ Write-Host "Instalando Visual Studio 2017 Community..."
 cinst visualstudio2017community --package-parameters "--locale en-US"
 cinst visualstudio2017-workload-netweb
 cinst visualstudio2017-workload-netcoretools --force
+cinst visualstudio2017-workload-nativedesktop
 ############################################################
 
 if (Test-PendingReboot) { Invoke-Reboot }
